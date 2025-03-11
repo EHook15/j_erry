@@ -1,4 +1,4 @@
-j_erry is a lil guy who hangs out in your pygame window, he is currently under development
+j_erry is currently under development
 --------------------------------------------------------------------------------------------------------------
 needs to be implemented:
 default,
