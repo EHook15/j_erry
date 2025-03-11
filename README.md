@@ -16,4 +16,5 @@ make animation smoother,
 --------------------------------------------------------------------------------------------------------------
 when he is done work on:
 audio???,
-mouse following
+mouse following,
+double size probably
