@@ -36,7 +36,33 @@ while running:
         headpat = True
     if (random.randint(0, 10000) == 1):
         blink = True
-    if headpat:                                                  #HEADPAT
+    if blink and headpat:                                        #BLINK AND HEADPAT
+        screen.fill((0, 0, 0))
+        a = (90, 200)
+        b = (218, 210)
+        c = (330, 190)
+        i = (77, 246)
+        j = (61, 284)
+        k = (378, 270)
+        l = (358, 211)
+        pygame.draw.line(screen, faceColorBack, a, b, backfacewidth) #blink line back
+        pygame.draw.line(screen, faceColorBack, b, c, backfacewidth)
+        pygame.draw.line(screen, faceColorBack, i, j, backfacewidth) #mouth back
+        pygame.draw.line(screen, faceColorBack, j, k, backfacewidth)
+        pygame.draw.line(screen, faceColorBack, k, l, backfacewidth)
+        pygame.draw.line(screen, faceColor, a, b, facewidth) #blink line
+        pygame.draw.line(screen, faceColor, b, c, facewidth)
+        pygame.draw.line(screen, faceColor, i, j, facewidth) #mouth
+        pygame.draw.line(screen, faceColor, j, k, facewidth)
+        pygame.draw.line(screen, faceColor, k, l, facewidth)
+        pygame.display.flip()
+        if random.randint(0, 1) == 1:
+            time.sleep(0.4)
+        else:
+            time.sleep(0.2)
+        blink = False
+        headpat = False
+    elif headpat:                                                  #HEADPAT
         screen.fill((0, 0, 0))
         #points for polygons
         a = (125, 128)
@@ -63,60 +89,9 @@ while running:
         pygame.draw.line(screen, faceColor, k, l, facewidth)
         pygame.display.flip()
         headpat = False
-    elif blink and headpat:                                        #BLINK AND HEADPAT
-        screen.fill((0, 0, 0))
-        a = (90, 200)
-        b = (218, 210)
-        c = (330, 190)
-        i = (77, 246)
-        j = (61, 284)
-        k = (378, 270)
-        l = (358, 211)
-        pygame.draw.line(screen, faceColorBack, a, b, backfacewidth) #blink line back
-        pygame.draw.line(screen, faceColorBack, b, c, backfacewidth)
-        pygame.draw.line(screen, faceColorBack, i, j, backfacewidth) #mouth back
-        pygame.draw.line(screen, faceColorBack, j, k, backfacewidth)
-        pygame.draw.line(screen, faceColorBack, k, l, backfacewidth)
-        pygame.draw.line(screen, faceColor, a, b, facewidth) #blink line
-        pygame.draw.line(screen, faceColor, b, c, facewidth)
-        pygame.draw.line(screen, faceColor, i, j, facewidth) #mouth
-        pygame.draw.line(screen, faceColor, j, k, facewidth)
-        pygame.draw.line(screen, faceColor, k, l, facewidth)
-        pygame.display.flip()
-        if random.randint(0, 1) == 1:
-            time.sleep(0.4)
-        else:
-            time.sleep(0.2)
-        blink = False
-        headpat = False
     elif blink:                                                    #JUST BLINK
         screen.fill((0, 0, 0))
         #points for polygons
-        a = (125, 88)
-        b = (185, 75)
-        c = (178, 220)
-        d = (129, 222)
-        e = (252, 65)
-        f = (307, 68)
-        g = (306, 216)
-        h = (253, 220)
-        i = (77, 246)
-        j = (61, 284)
-        k = (378, 270)
-        l = (358, 211)
-        pygame.draw.polygon(screen, faceColorBack, [a, b, c, d], backfacewidth) #eye 1 back
-        pygame.draw.polygon(screen, faceColorBack, [e, f, g ,h], backfacewidth) #eye 2 back
-        pygame.draw.line(screen, faceColorBack, i, j, backfacewidth) #mouth back
-        pygame.draw.line(screen, faceColorBack, j, k, backfacewidth)
-        pygame.draw.line(screen, faceColorBack, k, l, backfacewidth)
-        pygame.draw.polygon(screen, faceColor, [a, b, c, d], facewidth) #eye 1
-        pygame.draw.polygon(screen, faceColor, [e, f, g ,h], facewidth) #eye 2
-        pygame.draw.line(screen, faceColor, i, j, facewidth) #mouth
-        pygame.draw.line(screen, faceColor, j, k, facewidth)
-        pygame.draw.line(screen, faceColor, k, l, facewidth)
-        pygame.display.flip()
-        time.sleep(0.08)
-        screen.fill((0, 0, 0))
         a = (90, 200)
         b = (218, 210)
         c = (330, 190)
