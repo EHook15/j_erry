@@ -33,24 +33,28 @@ while running:
             running = False
     if default:
         #points for polygons
-        a = (122, 0)
-        b = (0, 0)
-        c = (0, 0)
-        d = (0, 0)
-        e = (0, 0)
-        f = (0, 0)
-        g = (0, 0)
-        h = (0, 0)
-        i = (0, 0)
-        j = (0, 0)
-        k = (0, 0)
-        l = (0, 0)
+        a = (125, 128)
+        b = (185, 115)
+        c = (178, 220)
+        d = (129, 222)
+        e = (252, 105)
+        f = (307, 108)
+        g = (306, 216)
+        h = (253, 220)
+        i = (77, 246)
+        j = (41, 284)
+        k = (378, 270)
+        l = (358, 211)
         pygame.draw.polygon(screen, faceColorBack, [a, b, c, d], backfacewidth) #eye 1 back
         pygame.draw.polygon(screen, faceColorBack, [e, f, g ,h], backfacewidth) #eye 2 back
-        pygame.draw.polygon(screen, faceColorBack, [i, j, k, l], backfacewidth) #mouth back
+        pygame.draw.line(screen, faceColorBack, i, j, backfacewidth) #mouth back
+        pygame.draw.line(screen, faceColorBack, j, k, backfacewidth)
+        pygame.draw.line(screen, faceColorBack, k, l, backfacewidth)
         pygame.draw.polygon(screen, faceColor, [a, b, c, d], facewidth) #eye 1
         pygame.draw.polygon(screen, faceColor, [e, f, g ,h], facewidth) #eye 2
-        pygame.draw.polygon(screen, faceColor, [i, j, k, l], facewidth) #mouth
+        pygame.draw.line(screen, faceColor, i, j, facewidth) #mouth
+        pygame.draw.line(screen, faceColor, j, k, facewidth)
+        pygame.draw.line(screen, faceColor, k, l, facewidth)
     pygame.display.flip()
     clock.tick(60) 
 
