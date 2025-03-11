@@ -16,27 +16,15 @@ facewidth = 5
 backfacewidth = 15
 #emotion
 smile = False
+happy = False
 sad = False
 uwu = False
 sleepy = False
 headpat = False
 default = True #in use
 glitch = False
+startup = False
 #def emotions
-
-#points for polygons
-a = (0, 0)
-b = (0, 0)
-c = (0, 0)
-d = (0, 0)
-e = (0, 0)
-f = (0, 0)
-g = (0, 0)
-h = (0, 0)
-i = (0, 0)
-j = (0, 0)
-k = (0, 0)
-l = (0, 0)
 
 while running:
     screen.fill((0, 0, 0))
@@ -44,11 +32,25 @@ while running:
         if event.type == pygame.QUIT:
             running = False
     if default:
-        pygame.draw.polygon(screen, faceColorBack, [(400, 400), (0, 0)], backfacewidth)
-        pygame.draw.polygon(screen, faceColor, [(400, 400), (0, 0)], facewidth)
-        #pygame.draw.polygon(screen, faceColor, ) #eye 1
-        #pygame.draw.polygon(screen, faceColor, ) #eye 2
-        #pygame.draw.polygon(screen, faceColor, ) #mouth
+        #points for polygons
+        a = (122, 0)
+        b = (0, 0)
+        c = (0, 0)
+        d = (0, 0)
+        e = (0, 0)
+        f = (0, 0)
+        g = (0, 0)
+        h = (0, 0)
+        i = (0, 0)
+        j = (0, 0)
+        k = (0, 0)
+        l = (0, 0)
+        pygame.draw.polygon(screen, faceColorBack, [a, b, c, d], backfacewidth) #eye 1 back
+        pygame.draw.polygon(screen, faceColorBack, [e, f, g ,h], backfacewidth) #eye 2 back
+        pygame.draw.polygon(screen, faceColorBack, [i, j, k, l], backfacewidth) #mouth back
+        pygame.draw.polygon(screen, faceColor, [a, b, c, d], facewidth) #eye 1
+        pygame.draw.polygon(screen, faceColor, [e, f, g ,h], facewidth) #eye 2
+        pygame.draw.polygon(screen, faceColor, [i, j, k, l], facewidth) #mouth
     pygame.display.flip()
     clock.tick(60) 
 
