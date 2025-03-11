@@ -21,7 +21,7 @@ uwu = False
 sleepy = False
 headpat = False
 default = True #in use
-blink = False
+blink = False #in use
 glitch = False
 startup = False
 ouch = False
@@ -32,17 +32,17 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-    if (random.randint(0, 10) == 1):
+    if (random.randint(0, 10000) == 1):
         blink = True
     if blink:
         screen.fill((0, 0, 0))
         #points for polygons
-        a = (125, 128)
-        b = (185, 115)
+        a = (125, 88)
+        b = (185, 75)
         c = (178, 220)
         d = (129, 222)
-        e = (252, 105)
-        f = (307, 108)
+        e = (252, 65)
+        f = (307, 68)
         g = (306, 216)
         h = (253, 220)
         i = (77, 246)
@@ -59,23 +59,31 @@ while running:
         pygame.draw.line(screen, faceColor, i, j, facewidth) #mouth
         pygame.draw.line(screen, faceColor, j, k, facewidth)
         pygame.draw.line(screen, faceColor, k, l, facewidth)
+        pygame.display.flip()
         time.sleep(0.1)
         screen.fill((0, 0, 0))
         a = (90, 200)
-        b = (330, 190)
+        b = (218, 210)
+        c = (330, 190)
         i = (77, 246)
         j = (61, 284)
         k = (378, 270)
         l = (358, 211)
         pygame.draw.line(screen, faceColorBack, a, b, backfacewidth) #blink line back
+        pygame.draw.line(screen, faceColorBack, b, c, backfacewidth)
         pygame.draw.line(screen, faceColorBack, i, j, backfacewidth) #mouth back
         pygame.draw.line(screen, faceColorBack, j, k, backfacewidth)
         pygame.draw.line(screen, faceColorBack, k, l, backfacewidth)
         pygame.draw.line(screen, faceColor, a, b, facewidth) #blink line
+        pygame.draw.line(screen, faceColor, b, c, facewidth)
         pygame.draw.line(screen, faceColor, i, j, facewidth) #mouth
         pygame.draw.line(screen, faceColor, j, k, facewidth)
         pygame.draw.line(screen, faceColor, k, l, facewidth)
-        time.sleep(0.5)
+        pygame.display.flip()
+        if random.randint(0, 1) == 1:
+            time.sleep(0.4)
+        else:
+            time.sleep(0.2)
         blink = False
     elif default:
         screen.fill((0, 0, 0))
@@ -102,6 +110,7 @@ while running:
         pygame.draw.line(screen, faceColor, i, j, facewidth) #mouth
         pygame.draw.line(screen, faceColor, j, k, facewidth)
         pygame.draw.line(screen, faceColor, k, l, facewidth)
+        pygame.display.flip()
     pygame.display.flip()
 
 pygame.quit()
