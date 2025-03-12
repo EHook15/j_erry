@@ -45,7 +45,6 @@ while running:
                 typeuwu = ""
             if typeuwu.lower() == "uwu":
                 uwu = not uwu
-                print("print")
                 typeuwu = ""
     if mousey < 100 and mousex > 100 and mousex < 300:
         timerforheadpat += 1
@@ -68,6 +67,21 @@ while running:
         j = (61 + offsetx / 2, 284 + offsety / 1)
         k = (378 + offsetx / 2, 270 + offsety / 3)
         l = (358 + offsetx / 2, 211 + offsety / 3)
+        u = (64 + offsetx / 2, 127 + offsety / 3)
+        v = (90 + offsetx / 2, 24 + offsety / 3)
+        w = (163 + offsetx / 2, 76 + offsety / 3)
+        x = (260 + offsetx / 2, 75 + offsety / 3)
+        y = (340 + offsetx / 2, 21 + offsety / 3)
+        z = (352 + offsetx / 2, 113 + offsety / 3)
+        if uwu:
+            pygame.draw.line(screen, faceColorBack, u, v, backfacewidth)      #TODO: FIX
+            pygame.draw.line(screen, faceColorBack, v, w, backfacewidth)
+            pygame.draw.line(screen, faceColorBack, x, y, backfacewidth)
+            pygame.draw.line(screen, faceColorBack, y, z, backfacewidth)
+            pygame.draw.line(screen, faceColor, u, v, facewidth)
+            pygame.draw.line(screen, faceColor, v, w, facewidth)
+            pygame.draw.line(screen, faceColor, x, y, facewidth)
+            pygame.draw.line(screen, faceColor, y, z, facewidth)
         pygame.draw.line(screen, faceColorBack, a, b, backfacewidth) #blink line back
         pygame.draw.line(screen, faceColorBack, b, c, backfacewidth)
         pygame.draw.line(screen, faceColorBack, i, j, backfacewidth) #mouth back
@@ -101,6 +115,21 @@ while running:
         j = (61 + offsetx / 2, 284 + offsety / 1)
         k = (378 + offsetx / 2, 270 + offsety / 3)
         l = (358 + offsetx / 2, 211 + offsety / 3)
+        u = (64 + offsetx / 2, 127 + offsety / 3)
+        v = (90 + offsetx / 2, 24 + offsety / 3)
+        w = (163 + offsetx / 2, 76 + offsety / 3)
+        x = (260 + offsetx / 2, 75 + offsety / 3)
+        y = (340 + offsetx / 2, 21 + offsety / 3)
+        z = (352 + offsetx / 2, 113 + offsety / 3)
+        if uwu:
+            pygame.draw.line(screen, faceColorBack, u, v, backfacewidth)      #TODO: FIX
+            pygame.draw.line(screen, faceColorBack, v, w, backfacewidth)
+            pygame.draw.line(screen, faceColorBack, x, y, backfacewidth)
+            pygame.draw.line(screen, faceColorBack, y, z, backfacewidth)
+            pygame.draw.line(screen, faceColor, u, v, facewidth)
+            pygame.draw.line(screen, faceColor, v, w, facewidth)
+            pygame.draw.line(screen, faceColor, x, y, facewidth)
+            pygame.draw.line(screen, faceColor, y, z, facewidth)
         pygame.draw.polygon(screen, faceColorBack, [a, b, c, d], backfacewidth) #eye 1 back
         pygame.draw.polygon(screen, faceColorBack, [e, f, g ,h], backfacewidth) #eye 2 back
         pygame.draw.line(screen, faceColorBack, i, j, backfacewidth) #mouth back
@@ -135,6 +164,12 @@ while running:
         r = (378, 180)
         s = (327, 185)
         t = (364, 200)
+        u = (64, 127)
+        v = (90, 24)
+        w = (163, 76)
+        x = (260, 75)
+        y = (340, 21)
+        z = (352, 113)
         pygame.draw.line(screen, faceColorBack, d, a, backfacewidth) #eye 1 back pet
         pygame.draw.line(screen, faceColorBack, a, b, backfacewidth)
         pygame.draw.line(screen, faceColorBack, b, c, backfacewidth)
@@ -161,6 +196,15 @@ while running:
         pygame.draw.line(screen, faceColor, o, p, 3)
         pygame.draw.line(screen, faceColor, q, r, 3)
         pygame.draw.line(screen, faceColor, s, t, 3)
+        if uwu:                                                 #TODO: make the ears move when pet
+            pygame.draw.line(screen, faceColorBack, u, v, backfacewidth)
+            pygame.draw.line(screen, faceColorBack, v, w, backfacewidth)
+            pygame.draw.line(screen, faceColorBack, x, y, backfacewidth)
+            pygame.draw.line(screen, faceColorBack, y, z, backfacewidth)
+            pygame.draw.line(screen, faceColor, u, v, facewidth)
+            pygame.draw.line(screen, faceColor, v, w, facewidth)
+            pygame.draw.line(screen, faceColor, x, y, facewidth)
+            pygame.draw.line(screen, faceColor, y, z, facewidth)
         pygame.display.flip()
         time.sleep(1)
         headpat = False
@@ -175,6 +219,12 @@ while running:
         j = (61, 284)
         k = (378, 270)
         l = (358, 211)
+        u = (64, 127)
+        v = (90, 24)
+        w = (163, 76)
+        x = (260, 75)
+        y = (340, 21)
+        z = (352, 113)
         pygame.draw.line(screen, faceColorBack, a, b, backfacewidth) #blink line back
         pygame.draw.line(screen, faceColorBack, b, c, backfacewidth)
         pygame.draw.line(screen, faceColorBack, i, j, backfacewidth) #mouth back
@@ -185,6 +235,15 @@ while running:
         pygame.draw.line(screen, faceColor, i, j, facewidth) #mouth
         pygame.draw.line(screen, faceColor, j, k, facewidth)
         pygame.draw.line(screen, faceColor, k, l, facewidth)
+        if uwu:
+            pygame.draw.line(screen, faceColorBack, u, v, backfacewidth)
+            pygame.draw.line(screen, faceColorBack, v, w, backfacewidth)
+            pygame.draw.line(screen, faceColorBack, x, y, backfacewidth)
+            pygame.draw.line(screen, faceColorBack, y, z, backfacewidth)
+            pygame.draw.line(screen, faceColor, u, v, facewidth)
+            pygame.draw.line(screen, faceColor, v, w, facewidth)
+            pygame.draw.line(screen, faceColor, x, y, facewidth)
+            pygame.draw.line(screen, faceColor, y, z, facewidth)
         pygame.display.flip()
         if random.randint(0, 1) == 1:
             time.sleep(0.4)
@@ -206,6 +265,12 @@ while running:
         j = (61, 284)
         k = (378, 270)
         l = (358, 211)
+        u = (64, 127)
+        v = (90, 24)
+        w = (163, 76)
+        x = (260, 75)
+        y = (340, 21)
+        z = (352, 113)
         pygame.draw.polygon(screen, faceColorBack, [a, b, c, d], backfacewidth) #eye 1 back
         pygame.draw.polygon(screen, faceColorBack, [e, f, g ,h], backfacewidth) #eye 2 back
         pygame.draw.line(screen, faceColorBack, i, j, backfacewidth) #mouth back
@@ -216,7 +281,15 @@ while running:
         pygame.draw.line(screen, faceColor, i, j, facewidth) #mouth
         pygame.draw.line(screen, faceColor, j, k, facewidth)
         pygame.draw.line(screen, faceColor, k, l, facewidth)
+        if uwu:
+            pygame.draw.line(screen, faceColorBack, u, v, backfacewidth)
+            pygame.draw.line(screen, faceColorBack, v, w, backfacewidth)
+            pygame.draw.line(screen, faceColorBack, x, y, backfacewidth)
+            pygame.draw.line(screen, faceColorBack, y, z, backfacewidth)
+            pygame.draw.line(screen, faceColor, u, v, facewidth)
+            pygame.draw.line(screen, faceColor, v, w, facewidth)
+            pygame.draw.line(screen, faceColor, x, y, facewidth)
+            pygame.draw.line(screen, faceColor, y, z, facewidth)
         pygame.display.flip()
     pygame.display.flip()
-
 pygame.quit()
