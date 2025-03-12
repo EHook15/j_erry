@@ -27,7 +27,7 @@ glitch = False
 startup = False
 ouch = False
 #actions
-linefollowing = False
+mousefollowing = False
 
 while running:
     mousex, mousey = pygame.mouse.get_pos()
@@ -37,7 +37,7 @@ while running:
             running = False
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_1: 
-                linefollowing = True
+                mousefollowing = not mousefollowing
     if mousey < 100 and mousex > 100 and mousex < 300:
         timerforheadpat += 1
     if timerforheadpat >= 1500:
@@ -45,7 +45,7 @@ while running:
         timerforheadpat = 0
     if (random.randint(0, 10000) == 1):
         blink = True
-    if linefollowing and blink:                                #LINEFOLLOW AND BLINK
+    if mousefollowing and blink:                                #LINEFOLLOW AND BLINK
         screen.fill((0, 0, 0))
         offsetx = (mousex / 4) - 80
         offsety = (mousey / 4) - 80
@@ -73,7 +73,7 @@ while running:
         else:
             time.sleep(0.2)
         blink = False
-    if linefollowing:                                          #JUST LINEFOLLOW
+    if mousefollowing:                                          #JUST LINEFOLLOW
         screen.fill((0, 0, 0))
         offsetx = (mousex / 4) - 80
         offsety = (mousey / 4) - 80
