@@ -7,6 +7,7 @@ pygame.init()
 screen = pygame.display.set_mode((400, 400))
 
 running = True
+timerforheadpat = 0
 #colors
 faceColor = (201, 246, 255)
 faceColorBack = (77, 224, 255)
@@ -33,7 +34,10 @@ while running:
         if event.type == pygame.QUIT:
             running = False
     if mousey < 100 and mousex > 100 and mousex < 300:
+        timerforheadpat += 1
+    if timerforheadpat >= 1500:
         headpat = True
+        timerforheadpat = 0
     if (random.randint(0, 10000) == 1):
         blink = True
     if headpat:                                                  #HEADPAT
@@ -86,6 +90,7 @@ while running:
         pygame.draw.line(screen, faceColor, q, r, 3)
         pygame.draw.line(screen, faceColor, s, t, 3)
         pygame.display.flip()
+        time.sleep(0.5)
         headpat = False
         blink = False
     elif blink:                                                    #JUST BLINK
