@@ -19,13 +19,15 @@ smile = False
 happy = False
 sad = False
 uwu = False
-sleepy = False
-headpat = False #headpat
+sleepy = False 
+headpat = False #in use
 default = True #in use
 blink = False #in use
 glitch = False
 startup = False
 ouch = False
+#actions
+linefollowing = False
 
 while running:
     mousex, mousey = pygame.mouse.get_pos()
@@ -33,6 +35,9 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_1: 
+                linefollowing = True
     if mousey < 100 and mousex > 100 and mousex < 300:
         timerforheadpat += 1
     if timerforheadpat >= 1500:
@@ -40,7 +45,63 @@ while running:
         timerforheadpat = 0
     if (random.randint(0, 10000) == 1):
         blink = True
-    if headpat:                                                  #HEADPAT
+    if linefollowing and blink:                                #LINEFOLLOW AND BLINK
+        screen.fill((0, 0, 0))
+        offsetx = (mousex / 4) - 80
+        offsety = (mousey / 4) - 80
+        #points for polygons
+        a = (90 + offsetx, 200 + offsety)
+        b = (218 + offsetx, 210 + offsety)
+        c = (330 + offsetx, 190 + offsety)
+        i = (77 + offsetx / 2, 246 + offsety / 1)
+        j = (61 + offsetx / 2, 284 + offsety / 1)
+        k = (378 + offsetx / 2, 270 + offsety / 3)
+        l = (358 + offsetx / 2, 211 + offsety / 3)
+        pygame.draw.line(screen, faceColorBack, a, b, backfacewidth) #blink line back
+        pygame.draw.line(screen, faceColorBack, b, c, backfacewidth)
+        pygame.draw.line(screen, faceColorBack, i, j, backfacewidth) #mouth back
+        pygame.draw.line(screen, faceColorBack, j, k, backfacewidth)
+        pygame.draw.line(screen, faceColorBack, k, l, backfacewidth)
+        pygame.draw.line(screen, faceColor, a, b, facewidth) #blink line
+        pygame.draw.line(screen, faceColor, b, c, facewidth)
+        pygame.draw.line(screen, faceColor, i, j, facewidth) #mouth
+        pygame.draw.line(screen, faceColor, j, k, facewidth)
+        pygame.draw.line(screen, faceColor, k, l, facewidth)
+        pygame.display.flip()
+        if random.randint(0, 1) == 1:
+            time.sleep(0.4)
+        else:
+            time.sleep(0.2)
+        blink = False
+    if linefollowing:                                          #JUST LINEFOLLOW
+        screen.fill((0, 0, 0))
+        offsetx = (mousex / 4) - 80
+        offsety = (mousey / 4) - 80
+        #points for polygons
+        a = (125 + offsetx, 128 + offsety)
+        b = (185 + offsetx, 115 + offsety)
+        c = (178 + offsetx, 220 + offsety)
+        d = (129 + offsetx, 222 + offsety)
+        e = (252 + offsetx, 105 + offsety)
+        f = (307 + offsetx, 108 + offsety)
+        g = (306 + offsetx, 216 + offsety)
+        h = (253 + offsetx, 220 + offsety)
+        i = (77 + offsetx / 2, 246 + offsety / 1)
+        j = (61 + offsetx / 2, 284 + offsety / 1)
+        k = (378 + offsetx / 2, 270 + offsety / 3)
+        l = (358 + offsetx / 2, 211 + offsety / 3)
+        pygame.draw.polygon(screen, faceColorBack, [a, b, c, d], backfacewidth) #eye 1 back
+        pygame.draw.polygon(screen, faceColorBack, [e, f, g ,h], backfacewidth) #eye 2 back
+        pygame.draw.line(screen, faceColorBack, i, j, backfacewidth) #mouth back
+        pygame.draw.line(screen, faceColorBack, j, k, backfacewidth)
+        pygame.draw.line(screen, faceColorBack, k, l, backfacewidth)
+        pygame.draw.polygon(screen, faceColor, [a, b, c, d], facewidth) #eye 1
+        pygame.draw.polygon(screen, faceColor, [e, f, g ,h], facewidth) #eye 2
+        pygame.draw.line(screen, faceColor, i, j, facewidth) #mouth
+        pygame.draw.line(screen, faceColor, j, k, facewidth)
+        pygame.draw.line(screen, faceColor, k, l, facewidth)
+        pygame.display.flip()
+    elif headpat:                                                  #HEADPAT
         screen.fill((0, 0, 0))
         #points for polygons
         a = (125, 148)
