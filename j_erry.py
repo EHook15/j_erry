@@ -1,6 +1,7 @@
 import pygame
 import time
 import random
+import sys
 
 pygame.init()
 
@@ -15,7 +16,6 @@ faceColorBack = (77, 224, 255)
 facewidth = 5
 backfacewidth = 15
 #emotion
-smile = False
 happy = False
 sad = False
 uwu = False
@@ -28,6 +28,7 @@ startup = False
 ouch = False
 #actions
 mousefollowing = False
+typeuwu = ""
 
 while running:
     mousex, mousey = pygame.mouse.get_pos()
@@ -38,8 +39,18 @@ while running:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_1: 
                 mousefollowing = not mousefollowing
+            elif event.type == pygame.K_u or pygame.K_w:
+                typeuwu += event.unicode
+            if event.type == pygame.K_BACKSPACE:
+                typeuwu = ""
+            if typeuwu.lower() == "uwu":
+                uwu = not uwu
+                print("print")
+                typeuwu = ""
     if mousey < 100 and mousex > 100 and mousex < 300:
         timerforheadpat += 1
+    else:
+        timerforheadpat = 0
     if timerforheadpat >= 1500:
         headpat = True
         timerforheadpat = 0
@@ -151,7 +162,7 @@ while running:
         pygame.draw.line(screen, faceColor, q, r, 3)
         pygame.draw.line(screen, faceColor, s, t, 3)
         pygame.display.flip()
-        time.sleep(0.5)
+        time.sleep(1)
         headpat = False
         blink = False
     elif blink:                                                    #JUST BLINK
