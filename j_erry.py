@@ -16,9 +16,10 @@ faceColorBack = (77, 224, 255)
 facewidth = 5
 backfacewidth = 15
 #emotion
+rainbow = False
 happy = False
 sad = False
-uwu = False
+uwu = False #in use
 sleepy = False 
 headpat = False #in use
 default = True #in use
@@ -29,10 +30,13 @@ ouch = False
 #actions
 mousefollowing = False
 typeuwu = ""
+sleepytimer = 0
 
 while running:
     mousex, mousey = pygame.mouse.get_pos()
     screen.fill((0, 0, 0))
+    sleepytimer += 1
+    print(sleepytimer)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -51,11 +55,41 @@ while running:
     else:
         timerforheadpat = 0
     if timerforheadpat >= 1500:
+        sleepy = False
         headpat = True
         timerforheadpat = 0
     if (random.randint(0, 10000) == 1):
         blink = True
-    if mousefollowing and blink:                                #LINEFOLLOW AND BLINK
+    if sleepytimer >= 3000:
+        sleepy = True
+    if sleepy:                                                    #!SLEEPY not done and (needs uwu)
+        screen.fill((0, 0, 0))
+        #points for polygons
+        a = (125, 128)
+        b = (185, 115)
+        i = (77, 246)
+        j = (61, 284)
+        k = (378, 270)
+        l = (358, 211)
+        u = (64, 127)
+        v = (90, 24)
+        w = (163, 76)
+        x = (260, 75)
+        y = (340, 21)
+        z = (352, 113)
+        pygame.draw.polygon(screen, faceColorBack, [a, b, c, d], backfacewidth) #eye 1 back
+        pygame.draw.polygon(screen, faceColorBack, [e, f, g ,h], backfacewidth) #eye 2 back
+        pygame.draw.line(screen, faceColorBack, i, j, backfacewidth) #mouth back
+        pygame.draw.line(screen, faceColorBack, j, k, backfacewidth)
+        pygame.draw.line(screen, faceColorBack, k, l, backfacewidth)
+        pygame.draw.polygon(screen, faceColor, [a, b, c, d], facewidth) #eye 1
+        pygame.draw.polygon(screen, faceColor, [e, f, g ,h], facewidth) #eye 2
+        pygame.draw.line(screen, faceColor, i, j, facewidth) #mouth
+        pygame.draw.line(screen, faceColor, j, k, facewidth)
+        pygame.draw.line(screen, faceColor, k, l, facewidth)
+        pygame.display.flip()
+    elif mousefollowing and blink:                                #*MOUSEFOLLOW AND BLINK
+        sleepytimer = 0
         screen.fill((0, 0, 0))
         offsetx = (mousex / 4) - 80
         offsety = (mousey / 4) - 80
@@ -98,7 +132,8 @@ while running:
         else:
             time.sleep(0.2)
         blink = False
-    if mousefollowing:                                          #JUST LINEFOLLOW
+    elif mousefollowing:                                          #*JUST MOUSEFOLLOW
+        sleepytimer = 0
         screen.fill((0, 0, 0))
         offsetx = (mousex / 4) - 80
         offsety = (mousey / 4) - 80
@@ -141,8 +176,9 @@ while running:
         pygame.draw.line(screen, faceColor, j, k, facewidth)
         pygame.draw.line(screen, faceColor, k, l, facewidth)
         pygame.display.flip()
-    elif headpat:                                                  #HEADPAT
+    elif headpat:                                                  #*HEADPAT
         screen.fill((0, 0, 0))
+        sleepytimer = 0
         #points for polygons
         a = (125, 148)
         b = (185, 135)
@@ -209,7 +245,7 @@ while running:
         time.sleep(1)
         headpat = False
         blink = False
-    elif blink:                                                    #JUST BLINK
+    elif blink:                                                    #*JUST BLINK
         screen.fill((0, 0, 0))
         #points for polygons
         a = (90, 200)
@@ -250,7 +286,7 @@ while running:
         else:
             time.sleep(0.2)
         blink = False
-    elif default:                                                 #DEFAULT
+    elif default:                                                 #*DEFAULT
         screen.fill((0, 0, 0))
         #points for polygons
         a = (125, 128)
