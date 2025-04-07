@@ -64,7 +64,7 @@ while running:
     mousexrel, mouseyrel = py.mouse.get_rel()
     if mousey < 100 and mousex > 100 and mousex < 300 and mousexrel !=0 or mouseyrel != 0:
         timerforheadpat += 1
-    if timerforheadpat >= 100:
+    if timerforheadpat >= 150:
         sleepy = False
         headpat = True
         timerforheadpat = 0
@@ -119,58 +119,27 @@ while running:
         screen.fill((0, 0, 0))
         sleepytimer = 0
         #points for polygons
-        a = (125, 148)
-        b = (185, 135)
-        c = (178, 185)
-        d = (129, 193)
-        e = (252, 125)
-        f = (307, 128)
-        g = (306, 191)
-        h = (253, 185)
-        i = (77, 226)
-        j = (61, 264)
-        k = (378, 260)
-        l = (358, 211)
-        m = (71, 180) 
-        n = (38, 197)
-        o = (90, 200)
-        p = (57, 219)
-        q = (340, 164)
-        r = (378, 180)
-        s = (327, 185)
-        t = (364, 200)
-        u = (64, 127)
-        v = (90, 24)
-        w = (163, 76)
-        x = (260, 75)
-        y = (340, 21)
-        z = (352, 113)
-        py.draw.line(screen, faceColorBack, d, a, backfacewidth) #eye 1 back pet
-        py.draw.line(screen, faceColorBack, a, b, backfacewidth)
-        py.draw.line(screen, faceColorBack, b, c, backfacewidth)
-        py.draw.line(screen, faceColorBack, h, e, backfacewidth) #eye 2 back pet
-        py.draw.line(screen, faceColorBack, e, f, backfacewidth)
-        py.draw.line(screen, faceColorBack, f, g, backfacewidth)
-        py.draw.line(screen, faceColorBack, i, j, backfacewidth) #mouth back
-        py.draw.line(screen, faceColorBack, j, k, backfacewidth)
-        py.draw.line(screen, faceColorBack, k, l, backfacewidth)
-        py.draw.line(screen, faceColor, d, a, facewidth) #eye 1 pet
-        py.draw.line(screen, faceColor, a, b, facewidth)
-        py.draw.line(screen, faceColor, b, c, facewidth)
-        py.draw.line(screen, faceColor, h, e, facewidth) #eye 2 pet
-        py.draw.line(screen, faceColor, e, f, facewidth)
-        py.draw.line(screen, faceColor, f, g, facewidth)
-        py.draw.line(screen, faceColor, i, j, facewidth) #mouth
-        py.draw.line(screen, faceColor, j, k, facewidth)
-        py.draw.line(screen, faceColor, k, l, facewidth)
-        py.draw.line(screen, faceColorBack, m, n, 10) #blush back
-        py.draw.line(screen, faceColorBack, o, p, 10)
-        py.draw.line(screen, faceColorBack, q, r, 10)
-        py.draw.line(screen, faceColorBack, s, t, 10)
-        py.draw.line(screen, faceColor, m, n, 3) #blush
-        py.draw.line(screen, faceColor, o, p, 3)
-        py.draw.line(screen, faceColor, q, r, 3)
-        py.draw.line(screen, faceColor, s, t, 3)
+        eye1pet = [(129, 193), (125, 148), (185, 135), (178, 185)]
+        eye2pet = [(253, 185), (252, 125), (307, 128), (306, 191)]
+        mouth = [(77, 226), (61, 264), (378, 260), (358, 211)]
+        blush1 = [(71, 180), (38, 197)]
+        blush2 = [(90, 200), (57, 219)]
+        blush3 = [(340, 164), (378, 180)]
+        blush4 = [(327, 185), (364, 200)]
+        py.draw.lines(screen, faceColorBack, False, eye1pet, backfacewidth) #eye1pet back
+        py.draw.lines(screen, faceColorBack, False, eye2pet, backfacewidth) #eye2pet back
+        py.draw.lines(screen, faceColorBack, False, mouth, backfacewidth) #mouth back
+        py.draw.lines(screen, faceColorBack, False, blush1, 10) #blush1 back
+        py.draw.lines(screen, faceColorBack, False, blush2, 10) #blush2 back
+        py.draw.lines(screen, faceColorBack, False, blush3, 10) #blush3 back
+        py.draw.lines(screen, faceColorBack, False, blush4, 10) #blush4 back
+        py.draw.lines(screen, faceColor, False, eye1pet, facewidth) #eye1pet
+        py.draw.lines(screen, faceColor, False, eye2pet, facewidth) #eye2pet
+        py.draw.lines(screen, faceColor, False, mouth, facewidth) #mouth
+        py.draw.lines(screen, faceColor, False, blush1, 3) #blush1
+        py.draw.lines(screen, faceColor, False, blush2, 3) #blush2
+        py.draw.lines(screen, faceColor, False, blush3, 3) #blush3
+        py.draw.lines(screen, faceColor, False, blush4, 3) #blush4
         headpat = False
         ouchnum -= 1
         textouch = textouch[:-3]
@@ -179,29 +148,12 @@ while running:
     elif blink:                                              #*JUST BLINK
         screen.fill((0, 0, 0))
         #points for polygons
-        a = (90, 200)
-        b = (218, 210)
-        c = (330, 190)
-        i = (77, 246)
-        j = (61, 284)
-        k = (378, 270)
-        l = (358, 211)
-        u = (64, 127)
-        v = (90, 24)
-        w = (163, 76)
-        x = (260, 75)
-        y = (340, 21)
-        z = (352, 113)
-        py.draw.line(screen, faceColorBack, a, b, backfacewidth) #blink line back
-        py.draw.line(screen, faceColorBack, b, c, backfacewidth)
-        py.draw.line(screen, faceColorBack, i, j, backfacewidth) #mouth back
-        py.draw.line(screen, faceColorBack, j, k, backfacewidth)
-        py.draw.line(screen, faceColorBack, k, l, backfacewidth)
-        py.draw.line(screen, faceColor, a, b, facewidth) #blink line
-        py.draw.line(screen, faceColor, b, c, facewidth)
-        py.draw.line(screen, faceColor, i, j, facewidth) #mouth
-        py.draw.line(screen, faceColor, j, k, facewidth)
-        py.draw.line(screen, faceColor, k, l, facewidth)
+        blinkline = [(90, 200), (218, 210), (330, 190)]
+        mouth = [(77, 246), (61, 284), (378, 270), (358, 211)]
+        py.draw.lines(screen, faceColorBack, False, blinkline, backfacewidth) #blink line back
+        py.draw.lines(screen, faceColorBack, False, mouth, backfacewidth) #mouth back
+        py.draw.lines(screen, faceColor, False, blinkline, facewidth) #blink line
+        py.draw.lines(screen, faceColor, False, mouth, facewidth) #mouth
         py.draw.rect(screen, (0, 0, 0), textboxrect)
         textsurface = font.render(textouch, True, (255, 0, 0))
         screen.blit(textsurface, (textboxrect.x + 5, textboxrect.y + 5))
@@ -211,34 +163,18 @@ while running:
     elif default:                                        #*DEFAULT
         screen.fill((0, 0, 0))
         #points for polygons
-        a = (125, 128)
-        b = (185, 115)
-        c = (178, 220)
-        d = (129, 222)
-        e = (252, 105)
-        f = (307, 108)
-        g = (306, 216)
-        h = (253, 220)
-        i = (77, 246)
-        j = (61, 284)
-        k = (378, 270)
-        l = (358, 211)
-        u = (64, 127)
-        v = (90, 24)
-        w = (163, 76)
-        x = (260, 75)
-        y = (340, 21)
-        z = (352, 113)
-        py.draw.polygon(screen, faceColorBack, [a, b, c, d], backfacewidth) #eye 1 back
-        py.draw.polygon(screen, faceColorBack, [e, f, g ,h], backfacewidth) #eye 2 back
-        py.draw.line(screen, faceColorBack, i, j, backfacewidth) #mouth back
-        py.draw.line(screen, faceColorBack, j, k, backfacewidth)
-        py.draw.line(screen, faceColorBack, k, l, backfacewidth)
-        py.draw.polygon(screen, faceColor, [a, b, c, d], facewidth) #eye 1
-        py.draw.polygon(screen, faceColor, [e, f, g ,h], facewidth) #eye 2
-        py.draw.line(screen, faceColor, i, j, facewidth) #mouth
-        py.draw.line(screen, faceColor, j, k, facewidth)
-        py.draw.line(screen, faceColor, k, l, facewidth)
+        eye1 = [(125, 128), (185, 115), (178, 220), (129, 222)]
+        eye2 = [(252, 105), (307, 108), (306, 216), (253, 220)]
+        mouth = [(77, 246), (61, 284), (378, 270), (358, 211)]
+        py.draw.polygon(screen, faceColorBack, eye1, backfacewidth) #eye 1 back
+        py.draw.polygon(screen, faceColorBack, eye2, backfacewidth) #eye 2 back
+        py.draw.lines(screen, faceColorBack, False, mouth, backfacewidth) #mouth back
+        py.draw.polygon(screen, faceColor, eye1, facewidth) #eye 1
+        py.draw.polygon(screen, faceColor, eye2, facewidth) #eye 2
+        py.draw.lines(screen, faceColor, False, mouth, facewidth) #mouth
+        py.draw.rect(screen, (0, 0, 0), textboxrect)
+        textsurface = font.render(textouch, True, (255, 0, 0))
+        screen.blit(textsurface, (textboxrect.x + 5, textboxrect.y + 5))
         py.display.flip()
     py.display.flip()
 py.quit()
