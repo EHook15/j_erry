@@ -1,24 +1,3 @@
-j_erry is currently under development
+j_erry is currently under development, j_erry2.0 is a working simpler version
 --------------------------------------------------------------------------------------------------------------
-needs to be implemented:
-smile,
-happy,
-sad,
-sleepy
-
---------------------------------------------------------------------------------------------------------------
-would be cool to have:
-cool glitch effects,
-make animation smoother,
-
---------------------------------------------------------------------------------------------------------------
-when he is done work on:
-audio???,
-double size probably
-
---------------------------------------------------------------------------------------------------------------
-implemented:
-default,
-blinking,
-petting him,
-following mouse (toggled with K_1)
+hes just a lil guy
