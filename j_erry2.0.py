@@ -86,55 +86,46 @@ while running:
     if typergb == "rgb":
         rainbow = not rainbow
         typergb = ""
-    if ouch:
+    if ouch:                                                 #OUCH
         faceColor = (250, 230, 230)
         faceColorBack = (170, 0, 0)
         screen.fill((0, 0, 0))
         #points for polygons
-        a = (125, 108)
-        b = (306, 216)
-        c = (306, 108)
-        d = (129, 222)
-        i = (278, 270)
-        j = (161, 284)
-        u = (64, 127)
-        v = (90, 24)
-        w = (163, 76)
-        x = (260, 75)
-        y = (340, 21)
-        z = (352, 113)
-        py.draw.line(screen, faceColorBack, a, b, backfacewidth) #eye line 1 back
-        py.draw.line(screen, faceColorBack, c, d, backfacewidth) #eye line 2 back
-        py.draw.line(screen, faceColorBack, i, j, backfacewidth) #mouth back
-        py.draw.line(screen, faceColor, a, b, facewidth) #eye line 1
-        py.draw.line(screen, faceColor, c, d, facewidth) #eye line 2
-        py.draw.line(screen, faceColor, i, j, facewidth) #mouth
+        eye1 = [(125, 108), (306, 216)]
+        eye2 = [(306, 108), (129, 222)]
+        mouth = [(228, 270), (221, 284)]
+        py.draw.lines(screen, faceColorBack, True, eye1, backfacewidth) #eye line 1 back
+        py.draw.lines(screen, faceColorBack, True, eye2, backfacewidth) #eye line 2 back
+        py.draw.lines(screen, faceColorBack, False, mouth, backfacewidth) #mouth back
+        py.draw.lines(screen, faceColor, True, eye1, facewidth) #eye line 1
+        py.draw.lines(screen, faceColor, True, eye2, facewidth) #eye line 2
+        py.draw.lines(screen, faceColor, False, mouth, facewidth) #mouth
         py.draw.rect(screen, (0, 0, 0), textboxrect)
         textsurface = font.render(textouch, True, (255, 0, 0))
         screen.blit(textsurface, (textboxrect.x + 5, textboxrect.y + 5))
         py.display.flip()
         ouch = False
         time.sleep(0.5)
-    elif headpat:                                            #*HEADPAT
+    elif headpat:                                            #HEADPAT
         screen.fill((0, 0, 0))
         sleepytimer = 0
         #points for polygons
-        eye1pet = [(129, 193), (125, 148), (185, 135), (178, 185)]
-        eye2pet = [(253, 185), (252, 125), (307, 128), (306, 191)]
+        eye1 = [(129, 193), (125, 148), (185, 135), (178, 185)]
+        eye2 = [(253, 185), (252, 125), (307, 128), (306, 191)]
         mouth = [(77, 226), (61, 264), (378, 260), (358, 211)]
         blush1 = [(71, 180), (38, 197)]
         blush2 = [(90, 200), (57, 219)]
         blush3 = [(340, 164), (378, 180)]
         blush4 = [(327, 185), (364, 200)]
-        py.draw.lines(screen, faceColorBack, False, eye1pet, backfacewidth) #eye1pet back
-        py.draw.lines(screen, faceColorBack, False, eye2pet, backfacewidth) #eye2pet back
+        py.draw.lines(screen, faceColorBack, False, eye1, backfacewidth) #eye1pet back
+        py.draw.lines(screen, faceColorBack, False, eye2, backfacewidth) #eye2pet back
         py.draw.lines(screen, faceColorBack, False, mouth, backfacewidth) #mouth back
         py.draw.lines(screen, faceColorBack, False, blush1, 10) #blush1 back
         py.draw.lines(screen, faceColorBack, False, blush2, 10) #blush2 back
         py.draw.lines(screen, faceColorBack, False, blush3, 10) #blush3 back
         py.draw.lines(screen, faceColorBack, False, blush4, 10) #blush4 back
-        py.draw.lines(screen, faceColor, False, eye1pet, facewidth) #eye1pet
-        py.draw.lines(screen, faceColor, False, eye2pet, facewidth) #eye2pet
+        py.draw.lines(screen, faceColor, False, eye1, facewidth) #eye1pet
+        py.draw.lines(screen, faceColor, False, eye2, facewidth) #eye2pet
         py.draw.lines(screen, faceColor, False, mouth, facewidth) #mouth
         py.draw.lines(screen, faceColor, False, blush1, 3) #blush1
         py.draw.lines(screen, faceColor, False, blush2, 3) #blush2
@@ -143,9 +134,12 @@ while running:
         headpat = False
         ouchnum -= 1
         textouch = textouch[:-3]
+        py.draw.rect(screen, (0, 0, 0), textboxrect)
+        textsurface = font.render(textouch, True, (255, 0, 0))
+        screen.blit(textsurface, (textboxrect.x + 5, textboxrect.y + 5))
         py.display.flip()
         time.sleep(1)
-    elif blink:                                              #*JUST BLINK
+    elif blink:                                              #JUST BLINK
         screen.fill((0, 0, 0))
         #points for polygons
         blinkline = [(90, 200), (218, 210), (330, 190)]
@@ -157,10 +151,11 @@ while running:
         py.draw.rect(screen, (0, 0, 0), textboxrect)
         textsurface = font.render(textouch, True, (255, 0, 0))
         screen.blit(textsurface, (textboxrect.x + 5, textboxrect.y + 5))
+        screen.blit(textsurface, (textboxrect.x + 5, textboxrect.y + 5))
         py.display.flip()
         blink = False
         time.sleep(0.2)
-    elif default:                                        #*DEFAULT
+    elif default:                                            #DEFAULT
         screen.fill((0, 0, 0))
         #points for polygons
         eye1 = [(125, 128), (185, 115), (178, 220), (129, 222)]
