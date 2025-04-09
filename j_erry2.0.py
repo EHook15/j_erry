@@ -25,7 +25,7 @@ headpat = False #in use
 default = True #in use
 blink = False #in use
 glitch = False
-startup = False
+startup = True #working on
 ouch = False #in use
 #actions
 mousefollowing = False
@@ -33,6 +33,7 @@ sleepytimer = 0
 timerforrainbow = 0
 typergb = ""
 ouchnum = 0
+startupoffset = 0
 #colors
 red = int(127.5 * (math.sin(timerforrainbow) + 1))
 green = int(127.5 * (math.sin(timerforrainbow + 2 * math.pi / 3) + 1))
@@ -42,6 +43,46 @@ faceColorBack = (red, green, blue)
 #font for ouch
 textboxrect = py.Rect(10, 10, 200, 32)
 textouch = ""
+#font for startup
+textstartup = "Starting j_erry..."
+
+faceColor = (201, 246, 255)
+faceColorBack = (30, 224, 255)
+while startup:                                         #STARTUP NOT DONE
+    for event in py.event.get():
+        if event.type == py.QUIT:
+            startup = False
+            running = False
+    startupoffset += 0.05
+    screen.fill((0, 0, 0))
+    #points for polygons
+    startupboxtop = [(0, 200 - startupoffset), (400, 200 - startupoffset), (400, 0), (0, 0)]   #increment with startupoffset
+    startupboxtophighlight = [(0, 200 - startupoffset), (400, 200 - startupoffset)]
+    startupboxbottom = [(0, 200 + startupoffset), (400, 200 + startupoffset), (400, 400), (0, 400)]
+    startupboxbottomhighlight = [(0, 200 + startupoffset), (400, 200 + startupoffset)]
+    eye1 = [(125, 128), (185, 115), (178, 220), (129, 222)]
+    eye2 = [(252, 105), (307, 108), (306, 216), (253, 220)]
+    mouth = [(77, 246), (61, 284), (378, 270), (358, 211)]
+    py.draw.polygon(screen, faceColorBack, eye1, backfacewidth) #eye 1 back
+    py.draw.polygon(screen, faceColorBack, eye2, backfacewidth) #eye 2 back
+    py.draw.lines(screen, faceColorBack, False, mouth, backfacewidth) #mouth back
+    py.draw.polygon(screen, faceColor, eye1, facewidth) #eye 1
+    py.draw.polygon(screen, faceColor, eye2, facewidth) #eye 2
+    py.draw.lines(screen, faceColor, False, mouth, facewidth) #mouth
+    py.draw.polygon(screen, (0, 0, 0), startupboxtop) #startupboxtop
+    py.draw.polygon(screen, (0, 0, 0), startupboxbottom) #startupboxbottom
+    if startupoffset <= 154:
+        py.draw.rect(screen, (0, 0, 0), textboxrect)
+        textsurface = font.render(textstartup, True, (0, 255, 255))
+        screen.blit(textsurface, (textboxrect.x + 5, textboxrect.y + 5))
+    py.draw.lines(screen, faceColorBack, True, startupboxtophighlight, 25) #startupboxtophighlight back
+    py.draw.lines(screen, faceColorBack, True, startupboxbottomhighlight, 25) #startupboxbottomhighlight back
+    py.draw.lines(screen, faceColor, True, startupboxtophighlight, 8) #startupboxtophighlight front
+    py.draw.lines(screen, faceColor, True, startupboxbottomhighlight, 8) #startupboxbottomhighlight front
+    if startupoffset >= 200:
+        blink = True
+        startup = False
+    py.display.flip()
 
 while running:
     py.draw.rect(screen, (0, 0, 0), textboxrect)
@@ -62,7 +103,7 @@ while running:
         faceColorBack = (30, 224, 255)
     mousex, mousey = py.mouse.get_pos()
     mousexrel, mouseyrel = py.mouse.get_rel()
-    if mousey < 100 and mousex > 100 and mousex < 300 and mousexrel !=0 or mouseyrel != 0:
+    if mousey < 100 and mousex > 100 and mousex < 300 and mousexrel != 0 or mouseyrel != 0:
         timerforheadpat += 1
     if timerforheadpat >= 150:
         sleepy = False
